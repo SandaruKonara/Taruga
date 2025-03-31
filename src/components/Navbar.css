@@ -16,6 +16,10 @@ body {
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;
+  margin: 10px 20px;
+  width: calc(100% - 40px);
+  box-sizing: border-box;
 }
 
 .navbar.scrolled {
@@ -43,6 +47,16 @@ body {
   transform: scale(1.05);
 }
 
+.logo-image {
+  height: auto;
+  width: 150px;
+  transition: transform 0.3s ease;
+}
+
+.navbar-logo:hover .logo-image {
+  transform: scale(1.05);
+}
+
 .nav-menu {
   display: flex;
   align-items: center;
@@ -56,7 +70,7 @@ body {
 }
 
 .nav-link {
-  color: #333;
+  color: white;
   text-decoration: none;
   font-weight: 500;
   font-size: 1.1rem;
@@ -64,6 +78,30 @@ body {
   border-radius: 8px;
   transition: all 0.3s ease;
   position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-link i {
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.nav-link:hover i {
+  transform: translateY(-2px);
+}
+
+.nav-link:hover span {
+  background: linear-gradient(45deg, #F5793B, #F1580C);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transform: translateY(-2px);
+}
+
+.nav-link span {
+  transition: all 0.3s ease;
 }
 
 .nav-link::after {
@@ -73,7 +111,7 @@ body {
   left: 50%;
   width: 0;
   height: 2px;
-  background: #333;
+  background: white;
   transition: all 0.3s ease;
   transform: translateX(-50%);
 }
@@ -92,7 +130,7 @@ body {
 .menu-icon span {
   width: 30px;
   height: 3px;
-  background: #333;
+  background: white;
   transition: all 0.3s ease;
 }
 
@@ -107,7 +145,7 @@ body {
     right: -100%;
     flex-direction: column;
     width: 100%;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(34, 40, 49, 0.95);
     backdrop-filter: blur(10px);
     padding: 2rem;
     transition: all 0.5s ease;
@@ -131,5 +169,13 @@ body {
 
   .menu-icon.active span:nth-child(3) {
     transform: rotate(-45deg) translate(8px, -8px);
+  }
+
+  .nav-link {
+    justify-content: center;
+  }
+  
+  .nav-link i {
+    font-size: 1.4rem;
   }
 }
