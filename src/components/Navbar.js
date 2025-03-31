@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
+import logoImage from "../images/orange.png"; // Add this import
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -24,7 +25,7 @@ const Navbar = () => {
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="navbar-container">
         <Link to="/" className="navbar-logo">
-          <h2>My Website</h2>
+          <img src={logoImage} alt="Logo" className="logo-image" />
         </Link>
 
         <div className={`menu-icon ${isOpen ? 'active' : ''}`} onClick={() => setIsOpen(!isOpen)}>
@@ -36,22 +37,26 @@ const Navbar = () => {
         <ul className={`nav-menu ${isOpen ? 'active' : ''}`}>
           <li className="nav-item">
             <Link to="/" className="nav-link" onClick={() => setIsOpen(false)}>
-              Home
+              <i className="fas fa-home"></i>
+              <span>Home</span>
             </Link>
           </li>
           <li className="nav-item">
             <Link to="/services" className="nav-link" onClick={() => setIsOpen(false)}>
-              Services
+              <i className="fas fa-cog"></i>
+              <span>Services</span>
             </Link>
           </li>
           <li className="nav-item">
             <Link to="/pricing" className="nav-link" onClick={() => setIsOpen(false)}>
-              Pricing
+              <i className="fas fa-tags"></i>
+              <span>Pricing</span>
             </Link>
           </li>
           <li className="nav-item">
             <Link to="/contact" className="nav-link" onClick={() => setIsOpen(false)}>
-              Contact Us
+              <i className="fas fa-envelope"></i>
+              <span>Contact Us</span>
             </Link>
           </li>
         </ul>
