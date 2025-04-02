@@ -1,11 +1,27 @@
 import React, { useEffect, useRef, useState } from "react";
+import Lottie from "lottie-react";
+import animationData from "../images/Scene-1.json";
 import "./Home.css";
 
 const Home = () => {
   const canvasRef = useRef(null);
   const mouseRef = useRef({ x: 0, y: 0 });
-  const [activeSlide, setActiveSlide] = useState(0);
   
+  // Animation style for Lottie
+  const style = {
+    width: "100%",
+    maxWidth: "1000px", // Increased from 600px
+    margin: "0 auto",
+    display: "flex",
+    justifyContent: "left",
+    alignItems: "left",
+    height: "100%",
+    position: "absolute",
+    left: "50%",
+    top: "50%",
+    transform: "translate(-50%, -50%)"
+  };
+
   // Animation for stars background
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -104,73 +120,18 @@ const Home = () => {
     };
   }, []);
 
-  // Hero Slides Data
-  const heroSlides = [
-    {
-      id: 1,
-      title: "Create your Digital future",
-      subtitle: "The term refers to exploring possible, preferable, probable futures of digital technologies, with equal consideration of technical, social, economic, and environmental aspects.",
-      textColor: "#F5793B"
-    },
-    {
-      id: 2,
-      title: "Start your digital journey with us",
-      subtitle: "The DX journey refers to the process of an organization implementing and harnessing digital technology innovation and processes.",
-      textColor: "#F5793B" 
-    },
-    {
-      id: 3,
-      title: "Start your school with us",
-      subtitle: "School School School School School School School",
-      textColor: "#F5793B"
-    }
-  ];
-
-  // Auto rotate slides every 5 seconds
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveSlide((prev) => (prev + 1) % heroSlides.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, [heroSlides.length]);
-
-  // Manual navigation
-  const handleSlideChange = (index) => {
-    setActiveSlide(index);
-  };
-
   return (
     <div className="home-container">
       {/* Hero Section with Stars Animation */}
       <div className="hero-section">
         <canvas ref={canvasRef} className="stars-canvas"></canvas>
         <div className="hero-content">
-          <div className="hero-slides-container">
-            {heroSlides.map((slide, index) => (
-              <div 
-                key={slide.id} 
-                className={`hero-slide ${index === activeSlide ? 'active' : ''}`}
-              >
-                <h1 className="title">{slide.title}</h1>
-                <p className="subtitle" style={{ color: slide.textColor }}>
-                  {slide.subtitle}
-                </p>
-              </div>
-            ))}
-          </div>
-          
-          <div className="slide-indicators">
-            {heroSlides.map((_, index) => (
-              <button
-                key={index}
-                className={`slide-indicator ${index === activeSlide ? 'active' : ''}`}
-                onClick={() => handleSlideChange(index)}
-                aria-label={`Slide ${index + 1}`}
-              />
-            ))}
-          </div>
-          
-          
+          <Lottie 
+            animationData={animationData}
+            style={style}
+            loop={true}
+            autoplay={true}
+          />
         </div>
       </div>
       
