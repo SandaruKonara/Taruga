@@ -1,16 +1,19 @@
 import React, { useEffect, useRef, useState } from "react";
 import Lottie from "lottie-react";
-import animationData from "../images/Scene-1.json";
+import animationData1 from "../images/Scene-1.json";
+import animationData2 from "../images/Scene-2.json";
 import "./Home.css";
 
 const Home = () => {
   const canvasRef = useRef(null);
   const mouseRef = useRef({ x: 0, y: 0 });
+  const [currentAnimation, setCurrentAnimation] = useState(1);
+  const [isFirstAnimationComplete, setIsFirstAnimationComplete] = useState(false);
   
   // Animation style for Lottie
   const style = {
     width: "100%",
-    maxWidth: "1000px", // Increased from 600px
+    maxWidth: "1000px",
     margin: "0 auto",
     display: "flex",
     justifyContent: "left",
@@ -19,7 +22,15 @@ const Home = () => {
     position: "absolute",
     left: "50%",
     top: "50%",
-    transform: "translate(-50%, -50%)"
+    transform: "translate(-50%, -50%)",
+    opacity: 1,
+    transition: 'opacity 0.5s ease-in-out'
+  };
+
+  // Handle animation complete
+  const handleAnimationComplete = () => {
+    setIsFirstAnimationComplete(true);
+    setCurrentAnimation(2);
   };
 
   // Animation for stars background
@@ -126,12 +137,23 @@ const Home = () => {
       <div className="hero-section">
         <canvas ref={canvasRef} className="stars-canvas"></canvas>
         <div className="hero-content">
-          <Lottie 
-            animationData={animationData}
-            style={style}
-            loop={true}
-            autoplay={true}
-          />
+          {!isFirstAnimationComplete && (
+            <Lottie 
+              animationData={animationData1}
+              style={style}
+              loop={false}
+              autoplay={true}
+              onComplete={handleAnimationComplete}
+            />
+          )}
+          {isFirstAnimationComplete && (
+            <Lottie 
+              animationData={animationData2}
+              style={style}
+              loop={true}
+              autoplay={true}
+            />
+          )}
         </div>
       </div>
       
