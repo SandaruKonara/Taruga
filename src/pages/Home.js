@@ -4,6 +4,8 @@ import Lottie from "lottie-react";
 import animationData from "../images/Scene-1.json";
 import serviceAnimation from "../images/Animation - 1743772306215.json";
 import HostingAnimation from "../images/hosting.json";
+import turuku from "../images/turuku.json";
+
 
 
 import "./Home.css";
@@ -221,9 +223,43 @@ const Home = () => {
           </div>
          
         </div>
-      </div>
+
+        
+         {/* Partners in success */}
+
+        <div className="section-partner">
+          <h2>Partners in success</h2>
+          <div className="section-pdivider">
+            <span className="divider-line"></span>
+            <span className="divider-icon"></span>
+            <span className="divider-line"></span>
+          </div>
+        </div>
+        
+
+       
+          <div className="service-card1">
+            <div className="service-icon">
+              <Lottie 
+                animationData={turuku}
+                style={{
+                    width: "550px",
+                    height: "250px",
+                }}
+                loop={true}
+                autoplay={true}
+              />
+            </div>
+          </div>  
+        </div>
+     
+
+
+
       
-      {/* Rest of the component remains unchanged */}
+      {/* Rest ofthe component remains unchanged */}
+ {/* Services Section */}
+
     </div>
   );
 };
