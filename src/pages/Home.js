@@ -5,8 +5,7 @@ import animationData from "../images/Scene-1.json";
 import serviceAnimation from "../images/Animation - 1743772306215.json";
 import HostingAnimation from "../images/hosting.json";
 import turuku from "../images/turuku.json";
-
-
+import aboutAnimation from "../images/about.json";
 
 import "./Home.css";
 
@@ -250,16 +249,59 @@ const Home = () => {
                 autoplay={true}
               />
             </div>
-          </div>  
+          </div>
+
+          <div className="about-section" id="about">
+        <div className="section-header">
+          <h2>About Us</h2>
+          <div className="section-divider">
+            <span className="divider-line"></span>
+            <span className="divider-icon"></span>
+            <span className="divider-line"></span>
+          </div>
+          <p>Discover our story and mission</p>
         </div>
-     
+        
+        <div className="about-content">
+          <div className="about-text">
+
+            <p>
+            Our team is small, but our passion and dedication are huge. Taruga is a one-person startup committed to delivering exceptional WordPress websites. Every project is executed with care, expertise, and a focus on our clients’ digital success. When you choose Taruga, you work directly with the person behind the vision, ensuring a personal and tailored approach to your needs.
+            </p>
+            
+            
+            <button 
+              className="about-button" 
+              onClick={() => navigate('/contact')}
+            >
+              Get Start today!
+            </button>
+          </div>
+          
+          
+            {/* You can use an animation here or a static image */}
+            {/* Replace this with your animation when you have the file */}
+            <div className="about-placeholder-image">
+              <Lottie 
+                animationData={aboutAnimation}
+                style={{
+                  width: "500px",
+                  height: "auto",
+                }}
+                loop={true}
+                autoplay={true}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
 
 
+
+
+       
 
       
-      {/* Rest ofthe component remains unchanged */}
- {/* Services Section */}
-
     </div>
   );
 };
