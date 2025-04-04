@@ -380,7 +380,7 @@ body {
 .about-content {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 4rem;
+  gap: 40rem;
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
@@ -432,7 +432,7 @@ body {
 .about-text h3 {
   font-size: 2rem;
   margin-bottom: 1.5rem;
-  color: #222831;
+  color: #e2e2e2;
   font-weight: 600;
 }
 
@@ -869,13 +869,13 @@ body {
 .divider-line {
   width: 50px;
   height: 3px;
-  background-color: #ce9d2a;
+  background-color: #F5793B;
 }
 
 .divider-icon {
   width: 12px;
   height: 12px;
-  background-color: #ce9d2a;
+  background-color: #F5793B;
   border-radius: 50%;
 }
 
@@ -932,3 +932,109 @@ body {
     max-width: 300px;
   }
 }
+
+
+/* Add these styles to your existing Home.css file */
+
+/* About Section Styles */
+.about-section {
+  padding: 80px 5%;
+  background: linear-gradient(135deg, #0D0F13 0%, #222831 70%, #37414F 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.about-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5px;
+  gap: 40px;
+}
+
+.about-text {
+  flex: 1;
+  max-width: 600px;
+}
+
+.about-text h3 {
+  font-size: 24px;
+  margin-bottom: 16px;
+  color: #333;
+}
+
+.about-text p {
+  font-size: 20px;
+  line-height: 1.7;
+  margin-bottom: 24px;
+  color: #ffffff;
+  text-align: left;
+}
+
+
+.about-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-button {
+  background-color: #4a90e2;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 16px;
+}
+
+.about-button:hover {
+  background-color: #3a7bc8;
+}
+
+/* Responsive styles */
+@media (max-width: 992px) {
+  .about-content {
+    flex-direction: column-reverse;
+  }
+  
+  .about-text, .about-image {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-section {
+    padding: 50px 5%;
+  }
+}
+
+
+/* Add this to your Home.css file */
+.about-section {
+  /* Remove or replace the existing background property */
+  background: transparent; /* or background: white; or any color you prefer */
+  color: #333; /* Adjust text color to be visible on the new background */
+  padding: 4rem 2rem;
+}
+
+/* You might also need to update text colors if they were designed for a dark background */
+.about-section h2,
+.about-section h3,
+.about-section p {
+  color: #f7f6f6; /* Adjust as needed */
+}
+
+/* If the dividers also need adjustment */
+.about-section .section-divider .divider-line {
+  background-color: #F5793B; /* Adjust as needed */
+}
+
+.about-section .section-divider .divider-icon {
+  background-color: #F5793B; /* This should match your brand color */
+}
+
