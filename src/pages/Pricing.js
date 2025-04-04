@@ -51,7 +51,7 @@ const Pricing = () => {
         "Mobilization",
         "Monthly technical support"
       ],
-      color: "#d9d9d9",
+      color: "#f0f0f0",
       isPopular: false,
       addOn: "Add On",
       hostingInfo: "Hosting: 9,99/mo",
@@ -81,16 +81,16 @@ const Pricing = () => {
   const comparisonData = [
     { feature: "Pages (Maximum)", starter: "1", pro: "4", premium: "7", elite: "Customization" },
     { feature: "Website", starter: "Landing Page", pro: "Portfolio website, Business website", premium: "Portfolio website, Business website, Blog website", elite: "Online store" },
-    { feature: "Lightning fast page loading", starter: true, pro: true, premium: true, elite: true },
-    { feature: "Mobile-friendly responsive design", starter: true, pro: true, premium: true, elite: true },
-    { feature: "SEO-friendly setup", starter: false, pro: true, premium: true, elite: true },
-    { feature: "Google Analytics and Google Search Console Integration", starter: false, pro: false, premium: true, elite: true },
-    { feature: "Website Legal (GDPR)", starter: false, pro: false, premium: true, elite: true },
-    { feature: "1 round of revisions", starter: false, pro: false, premium: true, elite: true },
-    { feature: "Free support training session", starter: false, pro: false, premium: true, elite: true },
-    { feature: "One month of ongoing technical support", starter: false, pro: false, premium: true, elite: true }
+    { feature: "Lightning fast page loading",  premium: true,  },
+    { feature: "Mobile-friendly responsive design",  premium: true,  },
+    { feature: "SEO-friendly setup",  premium: true,  },
+    { feature: "Google Analytics and Google Search Console Integration",  premium: true,  },
+    { feature: "Website Legal (GDPR)",  premium: true,  },
+    { feature: "1 round of revisions",  premium: true,  },
+    { feature: "Free support training session",  premium: true,  },
+    { feature: "One month of ongoing technical support",   premium: true,  }
   ];
-
+  
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -137,7 +137,7 @@ const Pricing = () => {
             variants={cardVariants}
             style={{ backgroundColor: plan.color }}
           >
-            {plan.isPopular && <div className="popular-badge">Most Popular</div>}
+           
             
             <div className="card-header">
               <h2 className="plan-name">{plan.plan}</h2>
