@@ -15,7 +15,7 @@ const Services = () => {
     {
       id: 'host-management',
       title: 'Host and Management',
-      description: 'At Taruga, we provide comprehensive hosting and management services alongside website development, customized to meet your business needs. Our priority is to keep your website fast, secure, and always up-to-date, allowing you to focus on growing your business while we handle the technical aspects. With our reliable hosting solutions and proactive management, you can trust that your digital presence is in safe hands.',
+      description: 'At Taruga, we offer comprehensive hosting and management services in addition to website development, tailored to your business needs. Our goal is to ensure that your website stays fast, secure, and up-to-date, so you can focus on growing your business while we take care of the technical details. With our reliable hosting solutions and proactive management, your digital presence is always in safe hands.',
       image: '/images/host-management.jpg'
     }
   ];
@@ -24,32 +24,32 @@ const Services = () => {
     {
       id: 'step1',
       title: 'Discover you digital needs',
-      description: 'We begin by understanding your business goals, target audience, and specific requirements to ensure our solution aligns perfectly with your needs.',
-      image: '/images/discover-needs.jpg' // Add your image path here
+      description: 'We start by understanding your business, your goals, and your target audience. Through consultations and detailed questionnaires, we gather all the information you need to create a website that reflects your vision.',
+      
     },
     {
       id: 'step2',
       title: 'Turning idea into action plans',
       description: 'Our team conducts thorough market research and competitor analysis to identify opportunities and create a strategy that helps you stand out.',
-      image: '/images/action-plans.jpg' // Add your image path here
+      
     },
     {
       id: 'step3',
       title: 'Creativity meets functionality',
-      description: 'We create detailed wireframes and prototypes to visualize the structure and functionality of your website before development begins.',
-      image: '/images/creativity-functionality.jpg' // Add your image path here
+      description: 'Our design process involves creating visually appealing layouts that reflect your brand identity. Once the design is approved, we develop the website using WordPress, ensuring it is responsive, fast, and SEO-friendly.',
+      
     },
     {
       id: 'step4',
       title: 'Your voice or priority',
-      description: 'Our designers and developers work together to create a visually stunning and fully functional website that meets all your requirements.',
-      image: '/images/your-voice.jpg' // Add your image path here
+      description: 'After development, we present the site for your review. We incorporate your feedback and make changes to ensure the final product exceeds your expectations.',
+     
     },
     {
       id: 'step5',
       title: 'Revealing your digital presence',
-      description: 'Before launch, we conduct comprehensive testing to ensure your website works perfectly across all devices and browsers.',
-      image: '/images/digital-presence.jpg' // Add your image path here
+      description: 'Once the site is approved, it will be published and made visible. We also provide ongoing maintenance and support to keep the site up to date and running smoothly.',
+      
     }
   ];
 
@@ -113,10 +113,7 @@ const Services = () => {
                   <div className="step-description">
                     <p>{step.description}</p>
                   </div>
-                  <div className="step-image">
-                    <div className="image-overlay"></div>
-                    <img src={step.image} alt={step.title} />
-                  </div>
+                  
                 </div>
               )}
             </div>
