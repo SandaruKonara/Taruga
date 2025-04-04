@@ -5,7 +5,7 @@
 .pricing-container {
     font-family: 'Poppins', sans-serif;
     padding: 4rem 1rem;
-    background: linear-gradient(to bottom, #ffffff, #f7f9fc);
+    background: linear-gradient(to bottom, #0D0F13,#f7f9fc, #f7f9fc);
   }
   
   .pricing-header {

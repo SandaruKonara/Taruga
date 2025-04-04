@@ -227,8 +227,18 @@ body {
 /* Services Section */
 .services-section {
   padding: 5rem 2rem;
-  background: linear-gradient(135deg, #0D0F13 0%, #222831 70%, #37414F 100%);
+  background: linear-gradient(
+    160deg,
+    rgba(13, 15, 19, 0.85) 0%,
+    rgba(34, 40, 49, 0.85) 25%,
+    rgba(55, 65, 79, 0.7) 60%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+  backdrop-filter: blur(12px);
+  color: #ffffff;
 }
+
+
 
 .services-grid {
   display: grid;
