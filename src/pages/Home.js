@@ -1,11 +1,22 @@
 import React, { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Lottie from "lottie-react";
 import animationData from "../images/Scene-1.json";
+import serviceAnimation from "../images/Animation - 1743772306215.json";
+import HostingAnimation from "../images/hosting.json";
+
+
 import "./Home.css";
 
 const Home = () => {
+  const navigate = useNavigate();
   const canvasRef = useRef(null);
   const mouseRef = useRef({ x: 0, y: 0 });
+
+  // Add navigation handler
+  const handleServiceLearnMore = (service) => {
+    navigate('/services', { state: { selectedService: service } });
+  };
   
   // Animation style for Lottie
   const style = {
@@ -165,54 +176,50 @@ const Home = () => {
         <div className="services-grid">
           <div className="service-card">
             <div className="service-icon">
-              <svg viewBox="0 0 24 24" width="48" height="48">
-                <path fill="#F5793B" d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-5 14H4v-4h11v4zm0-5H4V9h11v4zm5 5h-4V9h4v9z" />
-              </svg>
+              <Lottie 
+                animationData={serviceAnimation}
+                style={{
+                    width: "250px",
+                    height: "250px",
+                }}
+                loop={true}
+                autoplay={true}
+              />
             </div>
             <h3>Website Development</h3>
-            <p>Custom web applications and responsive websites built with the latest technologies.</p>
-            <ul className="service-features">
-              <li>Modern, responsive designs</li>
-              <li>E-commerce solutions</li>
-              <li>CMS integration</li>
-              <li>Custom web applications</li>
-            </ul>
-            <button className="service-button">Learn More</button>
+            <p>At Taruga, we specialize in creating professional, high-performance websites that serve as the cornerstone of your digital presence. With our expertise, we help businesses of all sizes realize their vision through cutting-edge design and seamless functionality.</p>
+            
+            <button 
+              className="service-button" 
+              onClick={() => handleServiceLearnMore('development')}
+            >
+              Learn More
+            </button>
           </div>
           
           <div className="service-card">
-            <div className="service-icon">
-              <svg viewBox="0 0 24 24" width="48" height="48">
-                <path fill="#F5793B" d="M21 5c-1.11-.35-2.33-.5-3.5-.5-1.95 0-4.05.4-5.5 1.5-1.45-1.1-3.55-1.5-5.5-1.5S2.45 4.9 1 6v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1zm0 13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V8c1.35-.85 3.8-1.5 5.5-1.5 1.2 0 2.4.15 3.5.5v11.5z" />
-              </svg>
+          <div className="service-icon">
+              <Lottie 
+                animationData={HostingAnimation}
+                style={{
+                    width: "250px",
+                    height: "250px",
+                }}
+                loop={true}
+                autoplay={true}
+              />
             </div>
-            <h3>Hosting Management</h3>
-            <p>Reliable, secure, and scalable hosting solutions for all your web needs.</p>
-            <ul className="service-features">
-              <li>99.9% uptime guarantee</li>
-              <li>CDN integration</li>
-              <li>SSL certificates</li>
-              <li>Regular backups</li>
-            </ul>
-            <button className="service-button">Learn More</button>
-          </div>
+            <h3>Hosting and Management</h3>
+            <p>At Taruga, we ensure your website runs smoothly, securely, and efficiently with our comprehensive hosting and management services. Our services are designed to give you peace of mind – we take care of all the technical details so you can focus on growing your business.</p>
           
-          <div className="service-card">
-            <div className="service-icon">
-              <svg viewBox="0 0 24 24" width="48" height="48">
-                <path fill="#F5793B" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
-              </svg>
-            </div>
-            <h3>Maintenance & Support</h3>
-            <p>Keep your website running smoothly with our comprehensive maintenance services.</p>
-            <ul className="service-features">
-              <li>24/7 technical support</li>
-              <li>Security monitoring</li>
-              <li>Performance optimization</li>
-              <li>Regular updates</li>
-            </ul>
-            <button className="service-button">Learn More</button>
+            <button 
+              className="service-button" 
+              onClick={() => handleServiceLearnMore('hosting')}
+            >
+              Learn More
+            </button>
           </div>
+         
         </div>
       </div>
       
