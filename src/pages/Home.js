@@ -1,19 +1,16 @@
 import React, { useEffect, useRef, useState } from "react";
 import Lottie from "lottie-react";
-import animationData1 from "../images/Scene-1.json";
-import animationData2 from "../images/Scene-2.json";
+import animationData from "../images/Scene-1.json";
 import "./Home.css";
 
 const Home = () => {
   const canvasRef = useRef(null);
   const mouseRef = useRef({ x: 0, y: 0 });
-  const [currentAnimation, setCurrentAnimation] = useState(1);
-  const [isFirstAnimationComplete, setIsFirstAnimationComplete] = useState(false);
   
   // Animation style for Lottie
   const style = {
     width: "100%",
-    maxWidth: "1000px",
+    maxWidth: "1200px", // Increased from 600px
     margin: "0 auto",
     display: "flex",
     justifyContent: "left",
@@ -22,15 +19,7 @@ const Home = () => {
     position: "absolute",
     left: "50%",
     top: "50%",
-    transform: "translate(-50%, -50%)",
-    opacity: 1,
-    transition: 'opacity 0.5s ease-in-out'
-  };
-
-  // Handle animation complete
-  const handleAnimationComplete = () => {
-    setIsFirstAnimationComplete(true);
-    setCurrentAnimation(2);
+    transform: "translate(-50%, -50%)"
   };
 
   // Animation for stars background
@@ -42,22 +31,23 @@ const Home = () => {
     
     // Star configuration
     const stars = [];
-    const starCount = 200;
-    const maxSize = 2;
-    const mouseRadius = 100; // Radius of mouse influence
-    const mouseForce = 0.5; // Strength of mouse influence
+    const starCount = 250; // Decreased from 300
+    const maxSize = 2; // Decreased from 2.5
+    const mouseRadius = 100; // Decreased from 120
+    const mouseForce = 0.5; // Decreased from 0.6
     
     // Initialize stars with velocity
     for (let i = 0; i < starCount; i++) {
       stars.push({
         x: Math.random() * width,
         y: Math.random() * height,
-        size: Math.random() * maxSize,
-        velocityX: (Math.random() - 0.5) * 0.5, // Random X velocity
-        velocityY: (Math.random() - 0.5) * 0.5, // Random Y velocity
+        size: 0.3 + Math.random() * maxSize, // Decreased minimum size from 0.5
+        velocityX: (Math.random() - 0.5) * 0.5, // Decreased velocity range from 0.7
+        velocityY: (Math.random() - 0.5) * 0.5,
         originalX: Math.random() * width,
         originalY: Math.random() * height,
-        angle: Math.random() * Math.PI * 2 // Random angle for circular motion
+        angle: Math.random() * Math.PI * 2,
+        opacity: 0.4 + Math.random() * 0.4 // Decreased opacity range from 0.6-1.0 to 0.4-0.8
       });
     }
     
@@ -72,6 +62,20 @@ const Home = () => {
     // Animate stars
     function animate() {
       ctx.clearRect(0, 0, width, height);
+      
+      // Add torch glow effect
+      const gradient = ctx.createRadialGradient(
+        mouseRef.current.x, mouseRef.current.y, 0,
+        mouseRef.current.x, mouseRef.current.y, 100
+      );
+      gradient.addColorStop(0, 'rgba(255, 200, 100, 0.2)'); // Warm light color
+      gradient.addColorStop(0.4, 'rgba(255, 150, 50, 0.1)');
+      gradient.addColorStop(1, 'rgba(255, 150, 50, 0)');
+      
+      ctx.fillStyle = gradient;
+      ctx.beginPath();
+      ctx.arc(mouseRef.current.x, mouseRef.current.y, 100, 0, Math.PI * 2);
+      ctx.fill();
       
       // Draw each star
       stars.forEach(star => {
@@ -98,7 +102,7 @@ const Home = () => {
         }
         
         // Draw star
-        ctx.fillStyle = "rgba(255, 255, 255, 0.8)";
+        ctx.fillStyle = `rgba(255, 255, 255, ${star.opacity})`; // Using dynamic opacity
         ctx.beginPath();
         ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
         ctx.fill();
@@ -137,23 +141,12 @@ const Home = () => {
       <div className="hero-section">
         <canvas ref={canvasRef} className="stars-canvas"></canvas>
         <div className="hero-content">
-          {!isFirstAnimationComplete && (
-            <Lottie 
-              animationData={animationData1}
-              style={style}
-              loop={false}
-              autoplay={true}
-              onComplete={handleAnimationComplete}
-            />
-          )}
-          {isFirstAnimationComplete && (
-            <Lottie 
-              animationData={animationData2}
-              style={style}
-              loop={true}
-              autoplay={true}
-            />
-          )}
+          <Lottie 
+            animationData={animationData}
+            style={style}
+            loop={true}
+            autoplay={true}
+          />
         </div>
       </div>
       
