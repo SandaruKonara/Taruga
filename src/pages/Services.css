@@ -14,6 +14,7 @@
     padding: 10rem;
     font-family: 'Inter', sans-serif;
     animation: fadeInUp 0.8s ease-out;
+    scroll-behavior: smooth;
   }
   
   .services-section, .work-section {
@@ -40,7 +41,7 @@
     background-color: #50585e;
     border-radius: 8px;
     cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.3s ease;
     transform: translateY(0);
   }
   
@@ -51,7 +52,7 @@
   }
   
   .service-tab.active {
-    background-color: #ff7a00;
+    background: linear-gradient(45deg, #f0680d, #eaab44);
     color: white;
     animation: scaleIn 0.3s ease-out;
   }
@@ -221,7 +222,7 @@
   .contact-button {
     display: inline-block;
     padding: 1rem 2.5rem;
-    background-color: #ff7a00;
+    background: linear-gradient(45deg, #f0680d, #eaab44);
     color: white;
     text-decoration: none;
     border-radius: 8px;
@@ -292,6 +293,10 @@
       max-width: 150px;
       max-height: 150px;
     }
+  }
+
+  .service-section {
+    scroll-margin-top: 100px; /* Adjust based on your navbar height */
   }
 
   /* Animation Keyframes */

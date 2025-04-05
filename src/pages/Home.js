@@ -16,9 +16,17 @@ const Home = () => {
   const mouseRef = useRef({ x: 0, y: 0 });
   const [isLoading, setIsLoading] = useState(false);
 
-  // Add navigation handler
+  // Update the navigation handler
   const handleServiceLearnMore = (service) => {
-    navigate('/services', { state: { selectedService: service } });
+    navigate('/services', { 
+      state: { selectedService: service },
+      search: `?section=${service}`  // Add query parameter
+    });
+    // Scroll to top on navigation
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   };
   
   // Animation style for Lottie
@@ -231,7 +239,7 @@ const Home = () => {
               
               <button 
                 className="service-button" 
-                onClick={() => handleServiceLearnMore('development')}
+                onClick={() => handleServiceLearnMore('website-development')}
               >
                 Learn More
               </button>
@@ -254,7 +262,7 @@ const Home = () => {
             
               <button 
                 className="service-button" 
-                onClick={() => handleServiceLearnMore('hosting')}
+                onClick={() => handleServiceLearnMore('host-management')}
               >
                 Learn More
               </button>
