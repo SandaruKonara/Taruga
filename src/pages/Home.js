@@ -353,17 +353,7 @@ const Home = () => {
                 <p className="brand-description">
                   Crafting digital experiences that transform your business vision into reality.
                 </p>
-                <div className="social-links">
-                  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
-                    <i className="fab fa-linkedin"></i>
-                  </a>
-                  <a href="https://github.com" target="_blank" rel="noopener noreferrer">
-                    <i className="fab fa-github"></i>
-                  </a>
-                  <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-                    <i className="fab fa-twitter"></i>
-                  </a>
-                </div>
+
               </div>
 
               <div className="footer-links">

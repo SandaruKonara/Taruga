@@ -1100,7 +1100,7 @@ color: #fff;
 /* Footer Styles */
 .footer-section {
   background: rgba(13, 15, 19, 0.95);
-  padding: 6rem 2rem 2rem;
+  padding: 2rem;
   position: relative;
   overflow: hidden;
 }
@@ -1113,13 +1113,13 @@ color: #fff;
 .footer-grid {
   display: grid;
   grid-template-columns: 2fr 1fr 1.5fr;
-  gap: 4rem;
-  margin-bottom: 4rem;
+  gap: 20rem;
+  margin-bottom: 1rem;
 }
 
 .footer-brand {
   .footer-logo {
-    height: 40px;
+    height: 70px;
     margin-bottom: 1.5rem;
   }
 
@@ -1130,27 +1130,7 @@ color: #fff;
   }
 }
 
-.social-links {
-  display: flex;
-  gap: 1rem;
 
-  a {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    transition: all 0.3s ease;
-
-    &:hover {
-      background: linear-gradient(45deg, #f0680d, #eaab44);
-      transform: translateY(-3px);
-    }
-  }
-}
 
 .footer-links {
   h4 {
@@ -1222,7 +1202,7 @@ color: #fff;
 
   .footer-bottom-links {
     display: flex;
-    gap: 2rem;
+    gap: 1rem;
 
     a {
       color: rgba(255, 255, 255, 0.6);
