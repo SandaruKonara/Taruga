@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import Lottie from "lottie-react";
 import animationData from "../images/Scene-1.json";
 import serviceAnimation from "../images/Animation - 1743772306215.json";
@@ -11,8 +11,10 @@ import "./Home.css";
 
 const Home = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const canvasRef = useRef(null);
   const mouseRef = useRef({ x: 0, y: 0 });
+  const [isLoading, setIsLoading] = useState(false);
 
   // Add navigation handler
   const handleServiceLearnMore = (service) => {
@@ -147,162 +149,193 @@ const Home = () => {
     };
   }, []);
 
+  // Add this new effect for handling splash animation
+  useEffect(() => {
+    if (isLoading) {
+      document.body.style.overflow = 'hidden';
+      setTimeout(() => {
+        setIsLoading(false);
+        document.body.style.overflow = 'auto';
+      }, 1000);
+    }
+  }, [isLoading]);
+
+  // Add this effect to handle scroll to top
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }, [location]);
+
+  // Update the handleReload function
+  const handleReload = () => {
+    setIsLoading(true);
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+    setTimeout(() => {
+      window.location.reload();
+    }, 500);
+  };
+
   return (
-    <div className="home-container">
-      {/* Hero Section with Stars Animation */}
-      <div className="hero-section">
-        <canvas ref={canvasRef} className="stars-canvas"></canvas>
-        <div className="hero-content">
-          <Lottie 
-            animationData={animationData}
-            style={style}
-            loop={true}
-            autoplay={true}
-          />
+    <>
+      {isLoading && (
+        <div className="splash-screen">
+          <div className="splash-circle"></div>
         </div>
-      </div>
-      
-      {/* Services Section */}
-      <div className="services-section1" id="services">
-        <div className="section-header">
-          <h2>Our Services</h2>
-          <div className="section-divider">
-            <span className="divider-line"></span>
-            <span className="divider-icon"></span>
-            <span className="divider-line"></span>
+      )}
+      <div className="home-container">
+        {/* Hero Section with Stars Animation */}
+        <div className="hero-section">
+          <canvas ref={canvasRef} className="stars-canvas"></canvas>
+          <div className="hero-content">
+            <Lottie 
+              animationData={animationData}
+              style={style}
+              loop={true}
+              autoplay={true}
+            />
           </div>
-          <p>Comprehensive web solutions for your business</p>
         </div>
         
-        <div className="services-grid">
-          <div className="service-card">
-            <div className="service-icon">
-              <Lottie 
-                animationData={serviceAnimation}
-                style={{
-                    width: "250px",
-                    height: "250px",
-                }}
-                loop={true}
-                autoplay={true}
-              />
+        {/* Services Section */}
+        <div className="services-section1" id="services">
+          <div className="section-header">
+            <h2>Our Services</h2>
+            <div className="section-divider">
+              <span className="divider-line"></span>
+              <span className="divider-icon"></span>
+              <span className="divider-line"></span>
             </div>
-            <h3>Website Development</h3>
-            <p>At Taruga, we specialize in creating professional, high-performance websites that serve as the cornerstone of your digital presence. With our expertise, we help businesses of all sizes realize their vision through cutting-edge design and seamless functionality.</p>
+            <p>Comprehensive web solutions for your business</p>
+          </div>
+          
+          <div className="services-grid">
+            <div className="service-card">
+              <div className="service-icon">
+                <Lottie 
+                  animationData={serviceAnimation}
+                  style={{
+                      width: "250px",
+                      height: "250px",
+                  }}
+                  loop={true}
+                  autoplay={true}
+                />
+              </div>
+              <h3>Website Development</h3>
+              <p>At Taruga, we specialize in creating professional, high-performance websites that serve as the cornerstone of your digital presence. With our expertise, we help businesses of all sizes realize their vision through cutting-edge design and seamless functionality.</p>
+              
+              <button 
+                className="service-button" 
+                onClick={() => handleServiceLearnMore('development')}
+              >
+                Learn More
+              </button>
+            </div>
             
-            <button 
-              className="service-button" 
-              onClick={() => handleServiceLearnMore('development')}
-            >
-              Learn More
-            </button>
-          </div>
-          
-          <div className="service-card">
-          <div className="service-icon">
-              <Lottie 
-                animationData={HostingAnimation}
-                style={{
-                    width: "250px",
-                    height: "250px",
-                }}
-                loop={true}
-                autoplay={true}
-              />
+            <div className="service-card">
+            <div className="service-icon">
+                <Lottie 
+                  animationData={HostingAnimation}
+                  style={{
+                      width: "250px",
+                      height: "250px",
+                  }}
+                  loop={true}
+                  autoplay={true}
+                />
+              </div>
+              <h3>Hosting and Management</h3>
+              <p>At Taruga, we ensure your website runs smoothly, securely, and efficiently with our comprehensive hosting and management services. Our services are designed to give you peace of mind – we take care of all the technical details so you can focus on growing your business.</p>
+            
+              <button 
+                className="service-button" 
+                onClick={() => handleServiceLearnMore('hosting')}
+              >
+                Learn More
+              </button>
             </div>
-            <h3>Hosting and Management</h3>
-            <p>At Taruga, we ensure your website runs smoothly, securely, and efficiently with our comprehensive hosting and management services. Our services are designed to give you peace of mind – we take care of all the technical details so you can focus on growing your business.</p>
-          
-            <button 
-              className="service-button" 
-              onClick={() => handleServiceLearnMore('hosting')}
-            >
-              Learn More
-            </button>
+           
           </div>
+
+          
+          {/* Partners in success */}
+
+          <div className="section-partner">
+            <h2>Partners in success</h2>
+            <div className="section-pdivider">
+              <span className="divider-line"></span>
+              <span className="divider-icon"></span>
+              <span className="divider-line"></span>
+            </div>
+          </div>
+          
+
          
-        </div>
-
-        
-         {/* Partners in success */}
-
-        <div className="section-partner">
-          <h2>Partners in success</h2>
-          <div className="section-pdivider">
-            <span className="divider-line"></span>
-            <span className="divider-icon"></span>
-            <span className="divider-line"></span>
-          </div>
-        </div>
-        
-
-       
-          <div className="service-card1">
-            <div className="service-icon">
-              <Lottie 
-                animationData={turuku}
-                style={{
-                    width: "550px",
-                    height: "250px",
-                }}
-                loop={true}
-                autoplay={true}
-              />
+            <div className="service-card1">
+              <div className="service-icon">
+                <Lottie 
+                  animationData={turuku}
+                  style={{
+                      width: "550px",
+                      height: "250px",
+                  }}
+                  loop={true}
+                  autoplay={true}
+                />
+              </div>
             </div>
-          </div>
 
-          <div className="about-section" id="about">
-        <div className="section-header">
-          <h2>About Us</h2>
-          <div className="section-divider">
-            <span className="divider-line"></span>
-            <span className="divider-icon"></span>
-            <span className="divider-line"></span>
-          </div>
-          <p>Discover our story and mission</p>
-        </div>
-        
-        <div className="about-content">
-          <div className="about-text">
-
-            <p>
-            Our team is small, but our passion and dedication are huge. Taruga is a one-person startup committed to delivering exceptional WordPress websites. Every project is executed with care, expertise, and a focus on our clients’ digital success. When you choose Taruga, you work directly with the person behind the vision, ensuring a personal and tailored approach to your needs.
-            </p>
-            
-            
-            <button 
-              className="about-button" 
-              onClick={() => navigate('/contact')}
-            >
-              Get Start today!
-            </button>
+            <div className="about-section" id="about">
+          <div className="section-header">
+            <h2>About Us</h2>
+            <div className="section-divider">
+              <span className="divider-line"></span>
+              <span className="divider-icon"></span>
+              <span className="divider-line"></span>
+            </div>
+            <p>Discover our story and mission</p>
           </div>
           
-          
-            {/* You can use an animation here or a static image */}
-            {/* Replace this with your animation when you have the file */}
-            <div className="about-placeholder-image">
-              <Lottie 
-                animationData={aboutAnimation}
-                style={{
-                  width: "500px",
-                  height: "auto",
-                }}
-                loop={true}
-                autoplay={true}
-              />
+          <div className="about-content">
+            <div className="about-text">
+
+              <p>
+              Our team is small, but our passion and dedication are huge. Taruga is a one-person startup committed to delivering exceptional WordPress websites. Every project is executed with care, expertise, and a focus on our clients’ digital success. When you choose Taruga, you work directly with the person behind the vision, ensuring a personal and tailored approach to your needs.
+              </p>
+              
+              
+              <button 
+                className="about-button" 
+                onClick={() => navigate('/contact')}
+              >
+                Get Start today!
+              </button>
+            </div>
+            
+            
+              {/* You can use an animation here or a static image */}
+              {/* Replace this with your animation when you have the file */}
+              <div className="about-placeholder-image">
+                <Lottie 
+                  animationData={aboutAnimation}
+                  style={{
+                    width: "500px",
+                    height: "auto",
+                  }}
+                  loop={true}
+                  autoplay={true}
+                />
+              </div>
             </div>
           </div>
         </div>
       </div>
-
-
-
-
-       
-
-      
-    </div>
+    </>
   );
 };
 
