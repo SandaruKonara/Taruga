@@ -1,11 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, Link } from "react-router-dom";
 import Lottie from "lottie-react";
 import animationData from "../images/Scene-1.json";
 import serviceAnimation from "../images/Animation - 1743772306215.json";
 import HostingAnimation from "../images/hosting.json";
 import turuku from "../images/turuku.json";
 import aboutAnimation from "../images/about.json";
+import logoImage from "../images/orange.png";
 
 import "./Home.css";
 
@@ -342,6 +343,60 @@ const Home = () => {
             </div>
           </div>
         </div>
+        
+        {/* New Footer Section */}
+        <footer className="footer-section">
+          <div className="footer-content">
+            <div className="footer-grid">
+              <div className="footer-brand">
+                <img src={logoImage} alt="Taruga Logo" className="footer-logo" />
+                <p className="brand-description">
+                  Crafting digital experiences that transform your business vision into reality.
+                </p>
+                <div className="social-links">
+                  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+                    <i className="fab fa-linkedin"></i>
+                  </a>
+                  <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+                    <i className="fab fa-github"></i>
+                  </a>
+                  <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+                    <i className="fab fa-twitter"></i>
+                  </a>
+                </div>
+              </div>
+
+              <div className="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                  <li><Link to="/services">Services</Link></li>
+                  <li><Link to="/pricing">Pricing</Link></li>
+                  <li><Link to="/contact">Contact</Link></li>
+                </ul>
+              </div>
+
+              <div className="footer-contact">
+                <h4>Contact Us</h4>
+                <p><i className="fas fa-phone"></i> +358 417 241 555</p>
+                <p><i className="fas fa-envelope"></i> info@taruga.fi</p>
+                <button 
+                  className="contact-button"
+                  onClick={() => navigate('/contact')}
+                >
+                  Get in Touch
+                </button>
+              </div>
+            </div>
+
+            <div className="footer-bottom">
+              <p>&copy; {new Date().getFullYear()} Taruga. All rights reserved.</p>
+              <div className="footer-bottom-links">
+                <Link to="/privacy">Privacy Policy</Link>
+                <Link to="/terms">Terms of Service</Link>
+              </div>
+            </div>
+          </div>
+        </footer>
       </div>
     </>
   );
