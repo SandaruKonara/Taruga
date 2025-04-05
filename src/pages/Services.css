@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 /* Add this to your existing Services.css file */
 
 .services-container {
@@ -15,6 +19,7 @@
     font-family: 'Inter', sans-serif;
     animation: fadeInUp 0.8s ease-out;
     scroll-behavior: smooth;
+    min-height: 100vh;
   }
   
   .services-section, .work-section {
