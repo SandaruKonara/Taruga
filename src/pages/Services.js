@@ -10,6 +10,14 @@ const Services = () => {
   const [activeStep, setActiveStep] = useState(null);
   const location = useLocation();
 
+  // Add new useEffect for initial page load scroll
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }, []); // Empty dependency array means this runs once on mount
+
   useEffect(() => {
     const params = new URLSearchParams(location.search);
     const section = params.get('section');

@@ -23,8 +23,21 @@ body {
 }
 
 .navbar.scrolled {
-  background: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  background: hsla(223, 15%, 18%, 0.65); /* Reduced opacity for less darkness */
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25); /* Lighter shadow */
+}
+
+/* Adjust text visibility for lighter background */
+.navbar.scrolled .nav-link {
+  color: rgba(255, 255, 255, 0.95); /* Slightly more visible text */
+}
+
+/* Keep your existing hover effects visible on dark background */
+.navbar.scrolled .nav-link:hover span {
+  background: linear-gradient(45deg, #F5793B, #F1580C);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .navbar-container {

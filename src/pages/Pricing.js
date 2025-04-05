@@ -1,8 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { motion } from "framer-motion";
-import { Link, NavLink } from "react-router-dom";  // Add this import
+import { Link, NavLink, useLocation } from "react-router-dom";
 import "../styles/Pricing.css";
+
 const Pricing = () => {
+  const location = useLocation();
+
+  // Add useEffect for scroll to top
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }, [location]); // This will trigger when location changes
+
   // Updated pricing data based on the image
 
  
