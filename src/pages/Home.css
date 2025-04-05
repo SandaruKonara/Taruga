@@ -225,7 +225,7 @@ body {
 }
 
 /* Services Section */
-.services-section {
+.services-section1 {
   padding: 5rem 2rem;
   background: linear-gradient(135deg, rgba(13, 15, 19, 0.95), #222831d9, #37414fcc, rgba(255, 255, 255, 0.05));
   backdrop-filter: blur(8px);

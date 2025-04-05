@@ -163,7 +163,7 @@ const Home = () => {
       </div>
       
       {/* Services Section */}
-      <div className="services-section" id="services">
+      <div className="services-section1" id="services">
         <div className="section-header">
           <h2>Our Services</h2>
           <div className="section-divider">
