@@ -79,16 +79,76 @@ const Pricing = () => {
 
   // Feature comparison data from the lower section of the image
   const comparisonData = [
-    { feature: "Pages (Maximum)", starter: "1", pro: "4", premium: "7", elite: "Customization" },
-    { feature: "Website", starter: "Landing Page", pro: "Portfolio website, Business website", premium: "Portfolio website, Business website, Blog website", elite: "Online store" },
-    { feature: "Lightning fast page loading",  premium: true,  },
-    { feature: "Mobile-friendly responsive design",  premium: true,  },
-    { feature: "SEO-friendly setup",  premium: true,  },
-    { feature: "Google Analytics and Google Search Console Integration",  premium: true,  },
-    { feature: "Website Legal (GDPR)",  premium: true,  },
-    { feature: "1 round of revisions",  premium: true,  },
-    { feature: "Free support training session",  premium: true,  },
-    { feature: "One month of ongoing technical support",   premium: true,  }
+    { 
+      feature: "Pages (Maximum)", 
+      starter: "1", 
+      pro: "4", 
+      premium: "7", 
+      elite: "Customization" 
+    },
+    { 
+      feature: "Website", 
+      starter: "Landing Page", 
+      pro: "Portfolio website, Business website", 
+      premium: "Portfolio website, Business website, Blog website", 
+      elite: "Online store" 
+    },
+    { 
+      feature: "Lightning fast page loading", 
+      starter: "✓", 
+      pro: "✓", 
+      premium: "✓", 
+      elite: "✓" 
+    },
+    { 
+      feature: "Mobile-friendly responsive design", 
+      starter: "✓", 
+      pro: "✓", 
+      premium: "✓", 
+      elite: "✓" 
+    },
+    { 
+      feature: "SEO-friendly setup", 
+      starter: "✓", 
+      pro: "✓", 
+      premium: "✓", 
+      elite: "✓" 
+    },
+    { 
+      feature: "Google Analytics and Google Search Console Integration", 
+      starter: "✓", 
+      pro: "✓", 
+      premium: "✓", 
+      elite: "✓" 
+    },
+    { 
+      feature: "Website Legal (GDPR)", 
+      starter: "✓", 
+      pro: "✓", 
+      premium: "✓", 
+      elite: "✓" 
+    },
+    { 
+      feature: "1 round of revisions", 
+      starter: "✓", 
+      pro: "✓", 
+      premium: "✓", 
+      elite: "✓" 
+    },
+    { 
+      feature: "Free support training session", 
+      starter: "✓", 
+      pro: "✓", 
+      premium: "✓", 
+      elite: "✓" 
+    },
+    { 
+      feature: "One month of ongoing technical support", 
+      starter: "✓", 
+      pro: "✓", 
+      premium: "✓", 
+      elite: "✓" 
+    }
   ];
   
   const containerVariants = {
@@ -177,44 +237,42 @@ const Pricing = () => {
 
       {/* Feature Comparison Table */}
       <div className="comparison-container">
-        <table className="comparison-table">
-          <thead>
-            <tr>
-              <th>Features</th>
-              <th>WP STARTER</th>
-              <th>WP PRO</th>
-              <th>WP PREMIUM</th>
-              <th>WP ELITE</th>
-            </tr>
-          </thead>
-          <tbody>
-            {comparisonData.map((row, index) => (
-              <tr key={index}>
-                <td>{row.feature}</td>
-                <td>
-                  {typeof row.starter === "boolean" ? 
-                    (row.starter ? <span className="check-icon">✓</span> : <span className="empty-icon">○</span>) : 
-                    row.starter}
-                </td>
-                <td>
-                  {typeof row.pro === "boolean" ? 
-                    (row.pro ? <span className="check-icon orange">✓</span> : <span className="empty-icon">○</span>) : 
-                    row.pro}
-                </td>
-                <td>
-                  {typeof row.premium === "boolean" ? 
-                    (row.premium ? <span className="check-icon orange">✓</span> : <span className="empty-icon">○</span>) : 
-                    row.premium}
-                </td>
-                <td>
-                  {typeof row.elite === "boolean" ? 
-                    (row.elite ? <span className="check-icon orange">✓</span> : <span className="empty-icon">○</span>) : 
-                    row.elite}
-                </td>
+        <h2 style={{ 
+          marginBottom: '2rem', 
+          textAlign: 'center',
+          fontSize: '2rem',
+          fontWeight: '600'
+        }}>
+          Features Comparison
+        </h2>
+        <div style={{ 
+          overflowX: 'auto',
+          display: 'flex',
+          justifyContent: 'center'  /* Center the table wrapper */
+        }}>
+          <table className="comparison-table">
+            <thead>
+              <tr>
+                <th style={{ borderRadius: '8px 0 0 0' }}>Features</th>
+                <th>WP STARTER</th>
+                <th>WP PRO</th>
+                <th>WP PREMIUM</th>
+                <th style={{ borderRadius: '0 8px 0 0' }}>WP ELITE</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {comparisonData.map((row, index) => (
+                <tr key={index}>
+                  <td>{row.feature}</td>
+                  <td>{row.starter}</td>
+                  <td>{row.pro}</td>
+                  <td>{row.premium}</td>
+                  <td>{row.elite}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
 
       {/* Hosting and Management Section */}
