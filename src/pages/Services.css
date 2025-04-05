@@ -1,21 +1,29 @@
-
-
 /* Add this to your existing Services.css file */
 
 .services-container {
-    max-width: 1200px;
+    max-width: 2200px;
     margin: 0 auto;
+    background: linear-gradient(
+      190deg,
+      #0D0F13 0%,
+      #222831 25%,
+      #37414F 60%,
+      #333232 100%
+    );
+    color: white;
     padding: 10rem;
     font-family: 'Inter', sans-serif;
+    animation: fadeInUp 0.8s ease-out;
   }
   
   .services-section, .work-section {
     margin-bottom: 4rem;
+    animation: fadeInUp 1s ease-out;
   }
   
   h2 {
     font-size: 2.5rem;
-    color: #2d3748;
+    color: #f8fbff;
     text-align: center;
     margin-bottom: 2rem;
   }
@@ -29,25 +37,31 @@
   
   .service-tab {
     padding: 1rem 2rem;
-    background-color: #f7fafc;
+    background-color: #50585e;
     border-radius: 8px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateY(0);
   }
   
   .service-tab:hover {
-    background-color: #e2e8f0;
+    background-color: rgba(66, 153, 225, 0.1);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(66, 153, 225, 0.15);
   }
   
   .service-tab.active {
-    background-color: #4299e1;
+    background-color: #ff7a00;
     color: white;
+    animation: scaleIn 0.3s ease-out;
   }
   
   .service-details-container {
-    background-color: #ffffff;
+    background: rgba(156, 155, 155, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
     overflow: hidden;
   }
   
@@ -56,6 +70,16 @@
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
     padding: 2rem;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(8px);
+  }
+  
+  .service-detail:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
   }
   
   .service-content {
@@ -68,24 +92,44 @@
     font-size: 1.8rem;
     font-weight: 600;
     margin-bottom: 1rem;
-    color: #2d3748;
+    color: rgba(255, 255, 255, 0.95);
   }
   
   .service-description {
-    color: #4a5568;
+    color: rgba(255, 255, 255, 0.8);
     line-height: 1.6;
   }
   
   .service-image {
     position: relative;
-    border-radius: 8px;
+    border-radius: 15px;
     overflow: hidden;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent; /* Changed from rgba(255, 255, 255, 0.05) */
+    height: 250px;
+    width: 250px;
+    margin: 0 auto;
   }
   
   .service-image img {
-    width: 100%;
-    height: 100%;
+    width: 50px;
+    height: 50px;
     object-fit: cover;
+  }
+  
+  .service-image:hover img {
+    transform: scale(1.05);
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .service-image > div {
+    width: 550px !important; /* Reduce the Lottie animation size */
+    height: 550px !important;
+    max-width: 250px; /* Maximum width */
+    max-height: 250px; /* Maximum height */
   }
   
   .work-process-container {
@@ -95,9 +139,18 @@
   }
   
   .work-step {
-    background-color: #ffffff;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateX(0);
+  }
+  
+  .work-step:hover {
+    transform: translateX(10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   }
   
   .step-header {
@@ -111,15 +164,21 @@
   .step-header h3 {
     margin: 0;
     font-size: 1.2rem;
-    color: #2d3748;
+    color: rgba(255, 255, 255, 0.95);
   }
   
   .expand-button {
     background: none;
     border: none;
     font-size: 1.5rem;
-    color: #4299e1;
+    color: #e1a442;
     cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .expand-button:hover {
+    transform: rotate(90deg);
+    color: #ce6531;
   }
   
   .step-content {
@@ -127,16 +186,13 @@
     display: grid;
     grid-template-columns: 9fr 1fr;
     gap: 2rem;
+    animation: slideInRight 0.5s ease-out;
   }
   
   .step-description {
-    color: #4a5568;
+    color: rgba(255, 255, 255, 0.8);
     line-height: 1.6;
   }
-  
- 
-  
-  
   
   .image-overlay {
     position: absolute;
@@ -144,34 +200,56 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(rgba(66, 153, 225, 0.1), rgba(66, 153, 225, 0.2));
+    background: transparent; /* Changed from gradient */
   }
   
   .footer-section {
     text-align: center;
     padding: 4rem 0;
-    background-color: #f7fafc;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 12px;
   }
   
   .tagline h2 {
     font-size: 2rem;
-    color: #2d3748;
+    color: rgba(255, 255, 255, 0.95);
     margin-bottom: 2rem;
   }
   
   .contact-button {
     display: inline-block;
     padding: 1rem 2.5rem;
-    background-color: #4299e1;
+    background-color: #ff7a00;
     color: white;
     text-decoration: none;
     border-radius: 8px;
-    transition: background-color 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
   }
   
   .contact-button:hover {
-    background-color: #3182ce;
+    background-color: #cd6300;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(66, 153, 225, 0.2);
+  }
+  
+  .contact-button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateX(-100%);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .contact-button:hover::after {
+    transform: translateX(0);
   }
   
   @media (max-width: 768px) {
@@ -187,5 +265,65 @@
   
     .service-tab {
       text-align: center;
+    }
+
+    .services-container {
+      padding: 5rem 2rem;
+    }
+  
+    .service-detail,
+    .work-step {
+      transform: none;
+    }
+  
+    .service-detail:hover,
+    .work-step:hover {
+      transform: translateY(-3px);
+    }
+
+    .service-image {
+      height: 200px;
+      width: 200px;
+    }
+  
+    .service-image > div {
+      width: 70% !important;
+      height: 70% !important;
+      max-width: 150px;
+      max-height: 150px;
+    }
+  }
+
+  /* Animation Keyframes */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
     }
   }

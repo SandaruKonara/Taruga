@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
+import Lottie from 'lottie-react';
 import "./Services.css";
+import websiteAnimation from '../images/Animation - 1743772306215.json';
+import hostingAnimation from '../images/hosting.json';
 
 const Services = () => {
   const [selectedService, setSelectedService] = useState('website-development');
@@ -10,13 +13,13 @@ const Services = () => {
       id: 'website-development',
       title: 'Website Development',
       description: 'At Taruga, we specialize in crafting custom websites that bring your ideas to life. Whether you need a sleek corporate site, an engaging blog, or a dynamic e-commerce platform, our team is dedicated to building a strong digital presence that resonates with your audience. Our mission is to create websites that are not only visually appealing but also intuitive and user-friendly.',
-      image: '/images/website-development.jpg'
+      animation: websiteAnimation
     },
     {
       id: 'host-management',
       title: 'Host and Management',
       description: 'At Taruga, we offer comprehensive hosting and management services in addition to website development, tailored to your business needs. Our goal is to ensure that your website stays fast, secure, and up-to-date, so you can focus on growing your business while we take care of the technical details. With our reliable hosting solutions and proactive management, your digital presence is always in safe hands.',
-      image: '/images/host-management.jpg'
+      animation: hostingAnimation
     }
   ];
 
@@ -86,7 +89,16 @@ const Services = () => {
                 </div>
                 <div className="service-image">
                   <div className="image-overlay"></div>
-                  <img src={service.image} alt={service.title} />
+                  {service.animation ? (
+                    <Lottie 
+                      animationData={service.animation}
+                      loop={true}
+                      autoplay={true}
+                      style={{ width: '100%', height: '100%' }}
+                    />
+                  ) : (
+                    <img src={service.image} alt={service.title} />
+                  )}
                 </div>
               </div>
             )
