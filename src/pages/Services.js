@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import Lottie from 'lottie-react';
 import "./Services.css";
 import websiteAnimation from '../images/Animation - 1743772306215.json';
@@ -7,6 +8,31 @@ import hostingAnimation from '../images/hosting.json';
 const Services = () => {
   const [selectedService, setSelectedService] = useState('website-development');
   const [activeStep, setActiveStep] = useState(null);
+  const location = useLocation();
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const section = params.get('section');
+    
+    if (section) {
+      setSelectedService(section);
+      // Add a small delay to ensure component is fully rendered
+      setTimeout(() => {
+        const element = document.getElementById('services-section');
+        if (element) {
+          element.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'start'
+          });
+          // Force scroll position in case of any offset issues
+          window.scrollTo({
+            top: element.offsetTop - 100, // Adjust this value based on your navbar height
+            behavior: 'smooth'
+          });
+        }
+      }, 300); // Increased delay for better reliability
+    }
+  }, [location, selectedService]);
 
   const services = [
     {
@@ -66,7 +92,11 @@ const Services = () => {
 
   return (
     <div className="services-container">
-      <section className="services-section">
+      <section 
+        className="services-section" 
+        id="services-section"
+        style={{ scrollMarginTop: '100px' }} // Add scroll margin for header offset
+      >
         <h2>Services</h2>
         <div className="services-menu">
           {services.map(service => (
