@@ -1,11 +1,16 @@
-
 /* Pricing.css */
 
 /* General styles */
 .pricing-container {
     font-family: 'Poppins', sans-serif;
     padding: 4rem 1rem;
-    background: linear-gradient(to bottom, #0D0F13,#f7f9fc, #f7f9fc);
+    background: linear-gradient(
+      190deg,
+      #0D0F13 0%,
+      #222831 25%,
+      #37414F 60%,
+      #9b9898 100%
+    );
   }
   
   .pricing-header {
@@ -213,15 +218,21 @@
     max-width: 1200px;
     margin: 4rem auto 0;
     overflow-x: auto;
+    padding: 2rem;
+    margin: 2rem auto;  /* Changed from 2rem 0 to 2rem auto */
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    max-width: 1200px;  /* Add max-width */
+    width: 90%;  /* Add width */
   }
   
   .comparison-table {
     width: 100%;
+    margin: 0 auto;  /* Center the table */
     border-collapse: separate;
     border-spacing: 0;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    background: #ffffff;
   }
   
   .comparison-table th {
@@ -315,3 +326,22 @@
       padding: 2rem 1.5rem;
     }
   }
+
+  .tag-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+    padding-top: 3.5rem;
+  }
+  
+  .development-tag {
+    color: #ffffff;
+    padding: 0.5rem 1.5rem;
+    border-radius: 2px;
+    font-weight: 700; /* Increased for bold text */
+    font-size: 32px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
