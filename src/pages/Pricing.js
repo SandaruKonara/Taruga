@@ -4,6 +4,8 @@ import { Link, NavLink } from "react-router-dom";  // Add this import
 import "../styles/Pricing.css";
 const Pricing = () => {
   // Updated pricing data based on the image
+
+ 
   const pricingData = [
     {
       plan: "WP Starter",
@@ -171,6 +173,11 @@ const Pricing = () => {
 
   return (
     <div className="pricing-container">
+      {/* Add this new section */}
+      <div className="tag-container">
+        <span className="development-tag">Web Development</span>
+      </div>
+
       {/* Pricing Header */}
       <div className="pricing-header">
         
