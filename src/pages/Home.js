@@ -344,49 +344,202 @@ const Home = () => {
           </div>
         </div>
         
-        {/* New Footer Section */}
-        <footer className="footer-section">
-          <div className="footer-content">
-            <div className="footer-grid">
-              <div className="footer-brand">
-                <img src={logoImage} alt="Taruga Logo" className="footer-logo" />
-                <p className="brand-description">
-                  Crafting digital experiences that transform your business vision into reality.
-                </p>
+<footer className="footer-section" style={{
+  backgroundColor: '#0a1721', // Darker, richer blue for luxury feel
+  color: '#ffffff',
+  padding: '4rem 0 2rem', // More padding for spaciousness
+  marginTop: '4rem',
+  boxShadow: 'inset 0 15px 30px -10px rgba(0,0,0,0.3)' // Subtle inner shadow for depth
+}}>
+  <div className="footer-content" style={{
+    maxWidth: '1200px',
+    margin: '0 auto',
+    padding: '0 2rem'
+  }}>
+    <div className="footer-grid" style={{
+      display: 'grid',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+      gap: '3rem',
+      marginBottom: '3.5rem'
+    }}>
+      <div className="footer-brand" style={{
+        marginBottom: '2rem'
+      }}>
+        <img src={logoImage} alt="Taruga Logo" className="footer-logo" style={{
+          height: '48px', // Larger logo
+          marginBottom: '1.5rem',
+          filter: 'brightness(1.1)' // Slight brightening of logo
+        }} />
+        <p className="brand-description" style={{
+          fontSize: '1rem',
+          lineHeight: '1.8',
+          color: '#e0e6ff',
+          fontWeight: '300', // Lighter weight for elegance
+          letterSpacing: '0.02em' // Slight letter spacing for luxury feel
+        }}>
+          Crafting digital experiences that transform your business vision into reality.
+        </p>
+      </div>
 
-              </div>
+      <div className="footer-links" style={{
+        marginBottom: '2rem'
+      }}>
+        <h4 style={{
+          fontSize: '1.25rem',
+          marginBottom: '1.5rem',
+          fontWeight: '500', // Medium weight for elegance
+          fontWeight: 'bold', // Bold for emphasis
+          color: '#ffffff',
+          position: 'relative',
+          paddingBottom: '0.1rem',
+          letterSpacing: '0.05em', // Elegant spacing
+          textTransform: 'uppercase', // Luxury feel
+          fontSize: '0.95rem'
+        }}>
+          Quick Links
+        </h4>
+        <ul style={{
+          listStyle: 'none',
+          padding: '0',
+          margin: '0'
+        }}>
+          <li style={{ marginBottom: '0.8rem' }}>
+            <Link to="/services" style={{
+              color: '#e0e0ff',
+              textDecoration: 'none',
+              transition: 'all 0.3s ease',
+              display: 'inline-block',
+              position: 'relative',
+              paddingLeft: '0.5rem'
+            }}>
+              <span style={{
+                position: 'absolute',
+                left: 0,
+                top: '50%',
+                transform: 'translateY(-50%)',
+                width: '3px',
+                height: '0',
+                backgroundColor: '#64b5f6',
+                transition: 'height 0.3s ease',
+                opacity: 0
+              }}></span>
+              Services
+            </Link>
+          </li>
+          <li style={{ marginBottom: '0.8rem' }}>
+            <Link to="/pricing" style={{
+              color: '#e0e0ff',
+              textDecoration: 'none',
+              transition: 'all 0.3s ease',
+              display: 'inline-block',
+              position: 'relative',
+              paddingLeft: '0.5rem'
+            }}>
+              
+              Pricing
+            </Link>
+          </li>
+          <li style={{ marginBottom: '0.8rem' }}>
+            <Link to="/contact" style={{
+              color: '#e0e0ff',
+              textDecoration: 'none',
+              transition: 'all 0.3s ease',
+              display: 'inline-block',
+              position: 'relative',
+              paddingLeft: '0.5rem'
+            }}>
+              
+              Contact
+            </Link>
+          </li>
+        </ul>
+      </div>
 
-              <div className="footer-links">
-                <h4>Quick Links</h4>
-                <ul>
-                  <li><Link to="/services">Services</Link></li>
-                  <li><Link to="/pricing">Pricing</Link></li>
-                  <li><Link to="/contact">Contact</Link></li>
-                </ul>
-              </div>
+      <div className="footer-contact" style={{
+        marginBottom: '2rem'
+      }}>
+        <h4 style={{
+          fontSize: '1.25rem',
+          marginBottom: '1.5rem',
+          fontWeight: '500',
+          color: '#ffffff',
+          position: 'relative',
+          paddingBottom: '0.1rem',
+          fontWeight: 'bold', // Bold for emphasis
+          letterSpacing: '0.05em', // Elegant spacing
+          textTransform: 'uppercase', // Luxury feel
+          fontSize: '0.95rem'
+        }}>
+        
+          Contact Us
+        </h4>
+        <p style={{ 
+          marginBottom: '1rem', 
+          display: 'flex', 
+          alignItems: 'center',
+          color: '#e0e6ff',
+          fontSize: '0.95rem',
+          letterSpacing: '0.02em'
+        }}>
+          <i className="fas fa-phone" style={{ 
+            marginRight: '7rem', 
+            color: '#64b5f6',
+            fontSize: '0.9rem' 
+          }}></i> 
+          +358 417 241 555
+        </p>
+        <p style={{ 
+          marginBottom: '1.5rem', 
+          display: 'flex', 
+          alignItems: 'center',
+          color: '#e0e6ff',
+          fontSize: '0.95rem',
+          letterSpacing: '0.02em'
+        }}>
+          <i className="fas fa-envelope" style={{ 
+            marginRight: '8rem', 
+            color: '#64b5f6',
+            fontSize: '0.9rem'
+          }}></i>
+          info@taruga.fi
+        </p>
+        
+      </div>
+    </div>
 
-              <div className="footer-contact">
-                <h4>Contact Us</h4>
-                <p><i className="fas fa-phone"></i> +358 417 241 555</p>
-                <p><i className="fas fa-envelope"></i> info@taruga.fi</p>
-                <button 
-                  className="contact-button"
-                  onClick={() => navigate('/contact')}
-                >
-                  Get in Touch
-                </button>
-              </div>
-            </div>
-
-            <div className="footer-bottom">
-              <p>&copy; {new Date().getFullYear()} Taruga. All rights reserved.</p>
-              <div className="footer-bottom-links">
-                <Link to="/privacy">Privacy Policy</Link>
-                <Link to="/terms">Terms of Service</Link>
-              </div>
-            </div>
-          </div>
-        </footer>
+    <div className="footer-bottom" style={{
+      borderTop: '1px solid rgba(255, 255, 255, 0.1)', // More subtle divider
+      paddingTop: '1.8rem',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      textAlign: 'center',
+      gap: '1.2rem',
+      fontSize: '0.85rem', // Smaller text for elegance
+      color: '#a9c0e0', // Softer color
+      letterSpacing: '0.03em' // Letter spacing for luxury feel
+    }}>
+      <p style={{ margin: '0' }}>&copy; {new Date().getFullYear()} Taruga. All rights reserved.</p>
+      <div className="footer-bottom-links" style={{
+        display: 'flex',
+        gap: '2rem' // More spacing between items
+      }}>
+        <Link to="/privacy" style={{
+          color: '#a9c0e0',
+          textDecoration: 'none',
+          transition: 'color 0.3s ease',
+          position: 'relative'
+        }}>Privacy Policy</Link>
+        <Link to="/terms" style={{
+          color: '#a9c0e0',
+          textDecoration: 'none',
+          transition: 'color 0.3s ease',
+          position: 'relative'
+        }}>Terms of Service</Link>
+      </div>
+    </div>
+  </div>
+</footer>
       </div>
     </>
   );
