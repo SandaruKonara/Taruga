@@ -84,7 +84,7 @@ const Pricing = () => {
       starter: "1", 
       pro: "4", 
       premium: "7", 
-      elite: "Customization" 
+      elite: "Rajoittamaton" 
     },
     { 
       feature: "Website", 
@@ -95,59 +95,52 @@ const Pricing = () => {
     },
     { 
       feature: "Lightning fast page loading", 
-      starter: "✓", 
-      pro: "✓", 
+       
+      
       premium: "✓", 
-      elite: "✓" 
+      
     },
     { 
       feature: "Mobile-friendly responsive design", 
-      starter: "✓", 
-      pro: "✓", 
+     
       premium: "✓", 
-      elite: "✓" 
+       
     },
     { 
       feature: "SEO-friendly setup", 
-      starter: "✓", 
-      pro: "✓", 
+      
       premium: "✓", 
-      elite: "✓" 
+      
     },
     { 
       feature: "Google Analytics and Google Search Console Integration", 
-      starter: "✓", 
-      pro: "✓", 
+       
       premium: "✓", 
-      elite: "✓" 
+       
     },
     { 
       feature: "Website Legal (GDPR)", 
-      starter: "✓", 
-      pro: "✓", 
+       
       premium: "✓", 
-      elite: "✓" 
+      
     },
     { 
       feature: "1 round of revisions", 
-      starter: "✓", 
-      pro: "✓", 
+      
       premium: "✓", 
-      elite: "✓" 
+      
     },
     { 
       feature: "Free support training session", 
-      starter: "✓", 
-      pro: "✓", 
+      
       premium: "✓", 
-      elite: "✓" 
+      
     },
     { 
       feature: "One month of ongoing technical support", 
-      starter: "✓", 
-      pro: "✓", 
+     
       premium: "✓", 
-      elite: "✓" 
+      
     }
   ];
   

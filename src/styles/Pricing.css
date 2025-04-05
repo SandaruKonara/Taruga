@@ -1,13 +1,12 @@
+
 /* Pricing.css */
 
 /* General styles */
 .pricing-container {
     font-family: 'Poppins', sans-serif;
     padding: 4rem 1rem;
-    background: linear-gradient(to bottom, #222831 20%, #ffffff 100%);
+    background: linear-gradient(to bottom, #0D0F13,#f7f9fc, #f7f9fc);
   }
-
-  /*background: linear-gradient(to bottom, #0D0F13 0%, #222831 70%, #37414F 100%);*/
   
   .pricing-header {
     text-align: center;
@@ -210,24 +209,19 @@
   
   /* Comparison table */
   .comparison-container {
-    padding: 2rem;
-    margin: 2rem auto;  /* Changed from 2rem 0 to 2rem auto */
-    background: #ffffff;
-    border-radius: 16px;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-    max-width: 1200px;  /* Add max-width */
-    width: 90%;  /* Add width */
+    width: 100%;
+    max-width: 1200px;
+    margin: 4rem auto 0;
+    overflow-x: auto;
   }
   
   .comparison-table {
     width: 100%;
-    margin: 0 auto;  /* Center the table */
     border-collapse: separate;
     border-spacing: 0;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-    background: #ffffff;
   }
   
   .comparison-table th {
@@ -236,11 +230,6 @@
     padding: 1rem;
     text-align: center;
     font-weight: 600;
-    background: #ffffff;
-    font-weight: 600;
-    color: #2d3748;
-    position: sticky;
-    top: 0;
   }
   
   .comparison-table th:first-child {
@@ -251,20 +240,12 @@
     padding: 1rem;
     text-align: center;
     border-bottom: 1px solid #eee;
-    color: #efefef; /* or any color you prefer */
-    font-size: 16px;
-    padding: 1rem;
-    text-align: left;
-    border-bottom: 1px solid #eef0f4;
-    color: #4a5568;
   }
   
   .comparison-table td:first-child {
     text-align: left;
     font-weight: 500;
     color: #333;
-    font-weight: 500;
-    color: #2d3748;
   }
   
   .comparison-table tr:nth-child(even) {
@@ -273,10 +254,6 @@
   
   .comparison-table tr:hover {
     background-color: #f1f5f9;
-  }
-  
-  .comparison-table tbody tr:hover {
-    background-color: #f8fafc;
   }
   
   .check-icon {
@@ -338,9 +315,3 @@
       padding: 2rem 1.5rem;
     }
   }
-
-/* Style for check marks */
-.comparison-table td:not(:first-child):contains("✓") {
-  color: #48bb78;
-  font-size: 1.2rem;
-}
