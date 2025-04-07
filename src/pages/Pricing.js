@@ -252,6 +252,7 @@ const Pricing = () => {
           marginBottom: '2rem', 
           textAlign: 'center',
           fontSize: '2rem',
+          color: 'black',
           fontWeight: '600'
         }}>
           Features Comparison
